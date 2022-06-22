@@ -5,18 +5,17 @@ let playerCounter = 0;
 let computerCounter = 0;
 
 
+const buttons = Array.from(document.querySelectorAll('button'));
+buttons.forEach(button => button.addEventListener('click', playRound));
+
+
 function computerPlay(){
     let choice = Math.floor(Math.random()*choices.length)
     console.log(choices[choice]);
     return choice;
 }
 
-function player(){
-    while (!choices.includes(playerSelection)){
-         playerSelection = prompt('Enter Rock, Paper, or Scissors', '');
-    }
-    playerSelection = playerSelection.toLowerCase();
-    console.log(playerSelection);
+function player(playerSelection){
     switch (true) {
         case playerSelection === 'rock':
             return 0;
@@ -43,13 +42,14 @@ function playerWinMsg(){
     return msg;
 }
 
-function playRound(playerSelection, computerSelection){
-    let msg = '';
-    console.log(playerSelection);
-    console.log(computerSelection);
+function playRound(e){
+    let button = e.target;
+    let playerSelection = button.textContent;
+    playerSelection = player(playerSelection.toLowerCase());
+    let computerSelection = computerPlay();
     switch (true){
         case playerSelection === computerSelection:
-            msg = 'It\'s A Tie';
+            let msg = 'It\'s A Tie';
             console.log(msg);
             alert(msg);
             return msg;
@@ -67,26 +67,22 @@ function playRound(playerSelection, computerSelection){
         default:
             computerWinMsg();
     }
+    result(playerCounter, computerCounter);
 }
-function game(){
-    while (true){
-        playerSelection = player();
-        computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
-        if (playerCounter === 3 || computerCounter ===3){
-            if (playerCounter === 3){
-                let msg = 'You Won The Game, Congratulations';
-                console.log(msg);
-                alert(msg);
-                return msg;
-            }else{
-                let msg = 'Sorry You Lost, Computer Won';
-                console.log(msg);
-                alert(msg);
-                return msg;
-            }
+function result(playerCounter, computerCounter){
+
+    if (playerCounter === 5 || computerCounter === 5){
+        if (playerCounter === 5){
+            let msg = 'You Won The Game, Congratulations';
+            console.log(msg);
+            alert(msg);
+            return msg;
+        }else{
+            let msg = 'Sorry You Lost, Computer Won';
+            console.log(msg);
+            alert(msg);
+            return msg;
         }
     }
 }
 
-game();
