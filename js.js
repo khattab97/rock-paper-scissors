@@ -1,6 +1,4 @@
 let choices = ['rock', 'paper', 'scissors'];
-let computerSelection = null;
-let playerSelection = '';
 let playerCounter = 0;
 let computerCounter = 0;
 
@@ -43,6 +41,7 @@ function playerWinMsg(){
 }
 
 function playRound(e){
+    console.log(this);
     let button = e.target;
     let playerSelection = button.textContent;
     playerSelection = player(playerSelection.toLowerCase());
