@@ -10,25 +10,53 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="title"><p>Rock Paper Scissors</p></div>
+    <div id="title"><h1>Rock Paper Scissors</h1></div>
     <div class="container">
 
         <div class="player">
-            <button>Rock</button>
-            <button>Paper</button>
-            <button>Scissors</button>
+            <div class="rock">
+                <img src="./images/rock.png" alt="Rock">
+                <button>Rock</button>
+            </div>
+            <div class="paper">
+                <img src="./images/paper.png" alt="Paper">
+                <button>Paper</button>
+            </div>
+            <div class="scissors">
+                <img src="./images/scissors.png" alt="Scissors">
+                <button>Scissors</button>
+            </div>
+
         </div>
 
         <div class="computer">
-            <button disabled="true">Rock</button>
-            <button disabled="true">Paper</button>
-            <button disabled="true">Scissors</button>
+            <div class="rock">
+                <img src="./images/rock.png" alt="Rock">
+                <button disabled>Rock</button>
+            </div>
+            <div class="paper">
+                <img src="./images/paper.png" alt="Paper">
+                <button disabled>Paper</button>
+            </div>
+            <div class="scissors">
+                <img src="./images/scissors.png" alt="Scissors">
+                <button disabled>Scissors</button>
+            </div>
         </div>
 
     </div>
 
     <div id="score">
-        <p>Score</p>
+        <div class="wrapper-1">
+            <p>Player</p>
+        </div>
+        <div class="wrapper-2">
+            <p>Computer</p>
+        </div>
+    </div>
+
+    <div class="msg">
+        <p id="msg">Start</p>
     </div>
 
 </body>
